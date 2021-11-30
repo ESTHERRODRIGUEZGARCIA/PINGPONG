@@ -517,7 +517,7 @@ def mover_ia(self, pelota):
 
 ````
 * Método golpear_ia()
-* 
+ 
 Este método es como el método golpear() del jugador humano, pero teniendo en cuenta que la pelota se acerca por el lado izquierdo de la raqueta en vez de por el derecho.
 ````
 def golpear_ia(self, pelota):
@@ -531,7 +531,7 @@ def golpear_ia(self, pelota):
             pelota.x = self.x - pelota.ancho
 ````
 * Mover la raqueta y detectar el golpe de la pelota
-* 
+ 
 Añadimos en el bucle principal del programa las llamadas a los métodos mover_ia() y golpear_ia() de la raqueta del jugador controlado por el propio programa (líneas 129 y 131).
 ````
 raqueta_1.mover()
