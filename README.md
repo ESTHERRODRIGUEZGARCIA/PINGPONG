@@ -456,3 +456,6 @@ Para pygame, las pulsaciones de teclado son eventos. Cuando se pulsa una tecla, 
                     if event.key == pygame.K_s:
                         raqueta_1.dir_y = 0
 ````
+# PASO 7: Golpear la pelota con la raqueta
+# PASO 8: Raqueta controlada por el ordenador
+# PASO 9: Mostrar puntuación
