@@ -523,4 +523,83 @@ def mover_ia(self, pelota):
         self.y += self.dir_y
 
 ````
+* Método golpear_ia()
+* 
+Este método es como el método golpear() del jugador humano, pero teniendo en cuenta que la pelota se acerca por el lado izquierdo de la raqueta en vez de por el derecho.
+````
+def golpear_ia(self, pelota):
+        if (
+            pelota.x + pelota.ancho > self.x
+            and pelota.x < self.x + self.ancho
+            and pelota.y + pelota.alto > self.y
+            and pelota.y < self.y + self.alto
+        ):
+            pelota.dir_x = -pelota.dir_x
+            pelota.x = self.x - pelota.ancho
+````
+* Mover la raqueta y detectar el golpe de la pelota
+* 
+Añadimos en el bucle principal del programa las llamadas a los métodos mover_ia() y golpear_ia() de la raqueta del jugador controlado por el propio programa (líneas 129 y 131).
+````
+raqueta_1.mover()
+        raqueta_2.mover_ia(pelota)
+        raqueta_1.golpear(pelota)
+        raqueta_2.golpear_ia(pelota)
+````
 # PASO 9: Mostrar puntuación
+
+
+En este útlimo paso, añadiremos la puntuación de la partida.
+
+Para ello, crearemos unos contadores que se actualizarán al ganar uno de los dos jugadores y que se mostrarán en la ventana.
+
+Las instrucciones añadidas con respecto al paso 8 son las siguientes:
+
+* Puntuación de los jugadores
+
+Para guardar y actualizar la puntuación de los jugadores, añadimos las siguientes instrucciones:
+
+ - Atributos puntuacion
+Añadimos dos atributos más en la clase PelotaPong, puntuacion y puntuacion_ia para guardar las puntuaciones de cada jugador.
+````
+# Puntuación de la pelota
+  self.puntuacion = 0
+  self.puntuacion_ia = 0
+````
+
+ -Modificar la puntuación
+La puntuación debe modificarse cuando un jugador gana, es decir, cuando la pelota supera uno de los laterales. El programa detecta esa situación en el método rebotar de PelotaPong, así que añadimos en ese método las líneas 44 y 47.
+````
+  def rebotar(self):
+        if self.x <= -self.ancho:
+            self.reiniciar()
+            self.puntuacion_ia += 1
+        if self.x >= VENTANA_HORI:
+            self.reiniciar()
+            self.puntuacion += 1
+````
+* Para mostrar en la ventana la puntuación de ambos jugadores, añadimos las siguientes instrucciones:
+ -Color del texto
+Definimos el color NEGRO como constante:
+````
+NEGRO = (0, 0, 0)  # Color del texto (RGB)
+````
+ -Definición del tamaño de fuente
+Creamos un objeto de clase Font en el que definimos el tamaño del tipo de letra (con el primer argumento podríamos elegir un tipo de letra determinado, en este caso no indicamos ninguno y por tanto pygame usará el predeterminado)
+````
+# Inicialización de la fuente
+    fuente = pygame.font.Font(None, 60)
+````
+ -Escritura en la pantalla
+Para escribir la puntuación:
+
+línea 148: Creamos una variable con el texto a mostrar
+
+línea 149: Creamos la superficie de dibujo con el texto e indicamos el color del texto.
+
+línea 150: Dibujamos la superficie, indicando la posición (x, y). Como la posición es siempre la esquina superior izquierda, tenemos que desplazar la posición horizontal hacia la izquierda teniendo en cuenta el tamaño.
+````
+texto = f"{pelota.puntuacion} : {pelota.puntuacion_ia}"
+        letrero = fuente.render(texto, False, NEGRO)
+        ventana.blit(letrero, (VENTANA_HORI / 2 - fuente.size(texto)[0] / 2, 50))
+````
