@@ -412,12 +412,12 @@ El jugador humano va a controlar su raqueta (por ejemplo, la raqueta raqueta_1) 
 Las instrucciones añadidas con respecto al paso 5 son las siguientes:
 
 * Mover la raqueta
- - Añadimos en el bucle principal del programa la llamada al método mover() de la raqueta.
+ -Añadimos en el bucle principal del programa la llamada al método mover() de la raqueta.
 ````
                 raqueta_1.mover()
 ````
-  - Ahora que la raqueta se mueve, debemos impedir que se salga de la ventana. Para añadiremos en el método mover() dos condiciones que detecten si la raqueta se está saliendo (por arriba o por abajo).
-  - 
+  -Ahora que la raqueta se mueve, debemos impedir que se salga de la ventana. Para añadiremos en el método mover() dos condiciones que detecten si la raqueta se está saliendo (por arriba o por abajo).
+  
 ````
             def mover(self):
                 self.y += self.dir_y
@@ -429,9 +429,10 @@ Las instrucciones añadidas con respecto al paso 5 son las siguientes:
 * Detectar las pulsaciones de teclado
 
 Para pygame, las pulsaciones de teclado son eventos. Cuando se pulsa una tecla, pygame crea un evento pygame.KEYDOWN y guarda la tecla pulsada en event.key. Cuando se libera una tecla, pygame crea un evento pygame.KEYUP y guarda la tecla pulsada en event.key. Por ello, en el bucle for que recorre los eventos detectados añadiremos la comprobación de los eventos y la modificación del atributo dir_y de dirección del movimiento.
- - línea 99-100: Si se ha pulsado la tecla "w", daremos un valor negativo (por ejemplo, -5) al atributo dir_y, para que la raqueta se desplace hacia arriba.
- - línea 101-102: Si se ha pulsado la tecla "s", daremos un valor positivo (por ejemplo, 5) al atributo dir_y, para que la raqueta se desplace hacia abajo.
- - líneas 106-109: Si se libewran las teclas "s" y "w", daremos un valor nulo (0) al atributo dir_y, para detener la raqueta.
+ -línea 99-100: Si se ha pulsado la tecla "w", daremos un valor negativo (por ejemplo, -5) al atributo dir_y, para que la raqueta se desplace hacia arriba.
+ -línea 101-102: Si se ha pulsado la tecla "s", daremos un valor positivo (por ejemplo, 5) al atributo dir_y, para que la raqueta se desplace hacia abajo.
+ -líneas 106-109: Si se libewran las teclas "s" y "w", daremos un valor nulo (0) al atributo dir_y, para detener la raqueta.
+
 ````
                 # Detecta que se ha pulsado una tecla
                 if event.type == pygame.KEYDOWN:
