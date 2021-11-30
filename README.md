@@ -319,7 +319,7 @@ En la definición de una clase se definen los atributos y los métodos de la cla
   ·El método mover() es la función que define cómo se mueve la pelota. En este caso, simplemente añadimos a las posiciones los valores de las direcciones. Este método sólo se ejecutará cuando la llamemos en el cuerpo del programa.
 La imagen siguiente muestra tres posiciones sucesivas de la pelota. La pelota se desplaza cada vez dir_x unidades en horizontal y dir_y unidades en vertical.
 ![image](https://user-images.githubusercontent.com/91721860/144068828-6312fd15-e9aa-4f0d-b55a-bcbc7dbb2b07.png)
-dir_ydir_x(2)dir_ydir_x
+
 
   ·(3)
   ```
@@ -393,8 +393,7 @@ class PelotaPong:
         if self.y + self.alto >= VENTANA_VERT:
             self.dir_y = -self.dir_y
 
-
-def main():
+  def main():
 
     # Inicialización de Pygame
     
