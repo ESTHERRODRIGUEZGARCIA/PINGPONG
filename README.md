@@ -80,7 +80,9 @@ Cada una de las instrucciones tiene una función específica, que se comenta a c
   Python no tiene un tipo de dato "constante" (es decir, un valor que no se pueda modificar). La costumbre, heredada de otros lenguajes, es simplemente escribir el nombre de una variable en mayúsculas para indicar a quien lea nuestro código fuente que esa variable no se va a modificar en ningún momento del programa. Definimos así varias constantes:
 
   ·El tamaño de la ventana de juego (en este caso, 800 x 600 px, la llamada resolución SVGA original).
+  
   ·Normalmente FPS hace referencia al número de veces por segundo que se actualiza la imagen en la ventana. En principio, cuanto más alto es ese valor, mejor se verán los objetos en movimiento, aunque cada pantalla admite un valor máximo y dependiendo de la complejidad de la creación de la imagen puede que no se puedan alcanzar valores muy altos. En pygame, la ventana se está actualizando constantemente y en cada actualización los objetos se desplazan, por lo que si la ventana se actualiza demasiadas veces, los objetos se desplazarán demasiado rápido. Para evitarlo, en pygame FPS significa el número máximo de veces que queremos que se actualice la ventana, aunque si debido a la complejidad de la imagen el número de veces que se actualiza la imagen es inferior, pygame no podrá alcanzarlo.
+  
   ·En pygame los colores se indican mediante códigos RGB, así que definimos una constante con el nombre del color para facilitar su referencia.
   
  * Inicialización
