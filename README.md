@@ -26,8 +26,7 @@ Por todo ello, cuando se aprende a programar videojuegos, es habitual comenzar p
 
   Para la realización del juego Pong, iremos por fases, implementando en cada paso uno de los elementos del programa.
  
-TAREA 0:
-
+# TAREA 0: 
   Instalación de pygame
   
   0.1 Abra una ventana de terminal y escriba los siguientes comandos.
@@ -40,22 +39,21 @@ TAREA 0:
   
       pip install pygame
       
-PASO 1: Ventana de juego  
+# PASO 1: Ventana de juego
 
 El juego se ejecutará en una ventana independiente. Para crear la ventana, necesitamos bastante código específico de pygame, que no es necesario conocer de memoria, ya que lo podemos reutilizar de un proyecto a otro.
 
 El siguiente programa genera una ventana en blanco con el título del juego, similar a la captura siguiente (la ventana está recortada en la captura).
 
 ![image](https://user-images.githubusercontent.com/91721860/144035929-2c8b016e-2b0c-4c2c-a693-6a31dd0dacd6.png)
-
-# pong_1_1.py: Ventana de juego
 ```
+# pong_1_1.py: Ventana de juego
+
 import pygame
 from pygame.locals import QUIT
-```
 
 # Constantes para la inicialización de la superficie de dibujo
-```
+
 VENTANA_HORI = 800  # Ancho de la ventana
 
 VENTANA_VERT = 600  # Alto de la ventana
