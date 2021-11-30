@@ -290,12 +290,19 @@ En la definición de una clase se definen los atributos y los métodos de la cla
 
   ·El método __init__() es la función que se ejecuta automáticamente cuando se cree un objeto de la clase. Por eso, aprovechamos este método para definir los atributos de la clase. En el caso de la pelota de este juego, sus atributos serán: la imagen que se muestra en la pantalla, su tamaño, la posición en la pantalla y la dirección del movimiento:
     -Todos los métodos incluyen el argumento self que hace referencia al propio objeto. En este caso, también añadimos el argumento imagen que indicará el camino hasta el fichero de imagen de la pelota:
+    
     def __init__(self, imagen):
+    
     -Un atributo de la clase será imagen, que cargará el fichero con la imagen:
+    
         self.imagen = pygame.image.load(fichero_imagen).convert_alpha()
+        
     -Otros dos atributos serán el ancho y alto de la imagen, ancho y alto que se obtienen a partir del atributo imagen con el método get_size():
+    
         self.ancho, self.alto = self.imagen.get_size()
+        
     -Dos atributos más serán la posición horizontal y vertical de la imagen, x e y. Inicialmente, queremos que la pelota se dibuje en el centro de la pantalla. Para ello, tenemos que tener en cuenta que cuando indicamos la posición de un objeto, estamos indicando la posición de la esquina superior izquierda de su imagen. Si el objeto es muy pequeño, no se notará la diferencia, pero lo mejor es tener en cuenta el ancho y alto del objeto, restando la mitad del tamaño del objeto a la posición del centro de la ventana.
+    
   VENTANA_HORI / 2self.ancho / 2VENTANA_VERT / 2self.alto / 2
     -   self.x = VENTANA_HORI / 2 - self.ancho / 2
          self.y = VENTANA_VERT / 2 - self.alto / 2
