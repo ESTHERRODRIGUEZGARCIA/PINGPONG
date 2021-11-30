@@ -422,7 +422,6 @@ def main():
 
     pygame.quit()
 
-
 if __name__ == "__main__":
     main()
    ```
@@ -455,10 +454,3 @@ Para que el programa compruebe si se debe producir un rebote basta con llamar al
 ```
     pelota.rebotar()
 ´´´
-
-
-
-
-
-
-
