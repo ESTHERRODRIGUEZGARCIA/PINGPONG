@@ -579,7 +579,7 @@ La puntuación debe modificarse cuando un jugador gana, es decir, cuando la pelo
             self.puntuacion += 1
 ````
 * Para mostrar en la ventana la puntuación de ambos jugadores, añadimos las siguientes instrucciones:
-* 
+
  -Color del texto
 Definimos el color NEGRO como constante:
 ````
