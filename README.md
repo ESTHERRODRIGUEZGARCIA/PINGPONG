@@ -348,65 +348,59 @@ Las instrucciones añadidas con respecto al paso 4 son las siguientes:
             
 ````
 
+
 La clase RaquetaPong es muy similar a la clase PelotaPong.
 
-
-        ·El método __init__() de la clase RaquetaPong es un poco más simple que el de la clase PelotaPong.
-        
-            -Las paletas utilizarán siempre la misma imagen, por lo que no incluiremos el camino al fichero como argumento de la clase.
+·El método __init__() de la clase RaquetaPong es un poco más simple que el de la clase PelotaPong.
+  -Las paletas utilizarán siempre la misma imagen, por lo que no incluiremos el camino al fichero como argumento de la clase.
             
 ````
-
                 def __init__(self):
-                
-````              
+````   
 
-            -El atributo imagen cargará el fichero con la imagen:
+ -El atributo imagen cargará el fichero con la imagen:
+ 
 ````
-
                     self.imagen = pygame.image.load("raqueta.png").convert_alpha()
-                    
 ````
-
-            -El ancho y alto de la imagen, ancho y alto se obtienen a partir del atributo imagen con el método get_size():
+ -El ancho y alto de la imagen, ancho y alto se obtienen a partir del atributo imagen con el método get_size():
 ````
-
                     self.ancho, self.alto = self.imagen.get_size()
-
 ````
-            -Las posiciones iniciales horizontal y vertical de la imagen, x e y que asignemos en la definición de la clase no es realmente importante, ya que cuando creemos las raquetas deberemos situarlas en posiciones distintas cambiando estos valores. Para ahorrarnos instrucciones en el cuerpo del programa, estableceremos la posición vertical centrada en la ventana (que es común a ambas raquetas).
+ -Las posiciones iniciales horizontal y vertical de la imagen, x e y que asignemos en la definición de la clase no es realmente importante, ya que cuando creemos las raquetas deberemos situarlas en posiciones distintas cambiando estos valores. Para ahorrarnos instrucciones en el cuerpo del programa, estableceremos la posición vertical centrada en la ventana (que es común a ambas raquetas).
             
 ````
                     self.x = 0
                     self.y = VENTANA_VERT / 2 - self.alto / 2
-
 ````
-            -Como la raqueta sólo se desplaza en vertical, únicamente necesitamos el atributo dir_y, que guardará la dirección vertical de movimiento de la imagen. Numéricamente, serán los píxeles que se desplazará la raqueta. Inicialmente, la raqueta estará inmóvil (0):
+ -Como la raqueta sólo se desplaza en vertical, únicamente necesitamos el atributo dir_y, que guardará la dirección vertical de movimiento de la imagen. Numéricamente, serán los píxeles que se desplazará la raqueta. Inicialmente, la raqueta estará inmóvil (0):
             
-````
-                    self.dir_y = 0
-                    
+````                    self.dir_y = 0    
 ````
 
-        El método mover() es la función que define cómo se mueve la raqueta. Aunque lo modificaremos en el paso siguiente, por el momento simplemente añadimos a la posición vertical el valor de la dirección vertical.
-
+· El método mover() es la función que define cómo se mueve la raqueta. Aunque lo modificaremos en el paso siguiente, por el momento simplemente añadimos a la posición vertical el valor de la dirección vertical.
+````
             def mover(self):
                 self.y += self.dir_y
+````
 
-    Crear las raquetas
+* Crear las raquetas
 
-    Una vez definida la clase, en el cuerpo del programa podemos crear objetos (es decir, variables) de esa clase. En este caso, creamos dos variables raqueta_1 y raqueta_2 de la clase RaquetaPong y modificamos sus atributos x para situarlas en posiciones distintas. Concretamente, las situamos a 60px de los lados izquierdo y derecho.
+Una vez definida la clase, en el cuerpo del programa podemos crear objetos (es decir, variables) de esa clase. En este caso, creamos dos variables raqueta_1 y raqueta_2 de la clase RaquetaPong y modificamos sus atributos x para situarlas en posiciones distintas. Concretamente, las situamos a 60px de los lados izquierdo y derecho.
+    
+````
 
         raqueta_1 = RaquetaPong()
         raqueta_1.x = 60
 
         raqueta_2 = RaquetaPong()
         raqueta_2.x = VENTANA_HORI - 60 - raqueta_2.ancho
+````
+* Dibujar las raquetas
 
-    Dibujar las raquetas
+Para ello recurrimos al método bit() del objeto ventana, indicando la imagen que queremos dibujar y su posición en la ventana:
 
-    Para ello recurrimos al método bit() del objeto ventana, indicando la imagen que queremos dibujar y su posición en la ventana:
-
+````
             ventana.blit(raqueta_1.imagen, (raqueta_1.x, raqueta_1.y))
             ventana.blit(raqueta_2.imagen, (raqueta_2.x, raqueta_2.y))
-
+````
