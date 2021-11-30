@@ -1,9 +1,14 @@
 # PINGPONG
 Reto compartido: El juego del Ping Pong
 
-@ESTHERRODRIGUEZGARCIA, 
+@ESTHERRODRIGUEZGARCIA, @tereesaalvarez, @Barroso03
 
 En este repositorio se va a resolver el juego de "Ping Pong". La tarea consiste en trabajar de forma conjunta con un repositorio compartido donde al menos se mostrarán 10 commits, 10 miltones y 5 proyects en el repositorio conjunto con varias ramas por persona y realizar la tarea pendiente que se presenta al final del documento.
+
+# Realización del programa 
+  Vamos a programar un juego de Pong en el que una de las raquetas esté controlada por el jugador humano mediante el teclado y la otra raqueta esté contralada por el propio programa.
+
+  Para la realización del juego Pong, iremos por fases, implementando en cada paso uno de los elementos del programa.
 
 # Historia de Pong
 
@@ -11,7 +16,7 @@ Aunque desde la aparición de los ordenadores programables en los años 40 del s
 
 Bastante años después, en septiembre de 1972, se comercializó la primera videoconsola de la historia dirigida a los hogares, Magnavox Odyssey. Esta videoconsola se conectaba a una pantalla de televisor y uno de los juegos incluidos era Table Tennis. En este juego cada jugador controlaba una paleta que golpeaba una pelota. El mismo año, pero en noviembre, la compañía Atari comercializó Pong, una de las primeras máquinas de arcade, destinadas a lugares públicos.
 
-# Pong, el videojuego
+* Pong, el videojuego
 ![image](https://user-images.githubusercontent.com/91721860/144032828-0a749965-6164-4954-a12b-ebad2d63ef58.png)
 
 Con Pong, un juego trivial para los estándares actuales, empezaba la era moderna de los videojuegos. Pong es un juego de deportes en dos dimensiones que simula un tenis de mesa. El jugador controla en el juego una paleta moviéndola verticalmente en la parte izquierda de la pantalla, y puede competir tanto contra un oponente controlado por computadora, como con otro jugador humano que controla una segunda paleta en la parte opuesta. Los jugadores pueden usar las raquetas para pegarle a la pelota hacia un lado u otro. El objetivo consiste en que uno de los jugadores consiga más puntos que el oponente al finalizar el juego. Estos puntos se obtienen cuando el jugador adversario falla al devolver la pelota.
@@ -20,11 +25,18 @@ La palabra Pong es una marca registrada por Atari Interactive (aunque la patente
 
 Por todo ello, cuando se aprende a programar videojuegos, es habitual comenzar programando un juego como Pong, por su sencillez y también como homenaje al gran clásico.
 
+# Pygame
 
- * Realización del programa *
-  Vamos a programar un juego de Pong en el que una de las raquetas esté controlada por el jugador humano mediante el teclado y la otra raqueta esté contralada por el propio programa.
+Pygame es un conjunto de módulos de Python que facilitan la creación de videojuegos. Pygame utiliza internamente la biblioteca SDL (Simple DirectMedia Layer), escrita principalmente en C.
 
-  Para la realización del juego Pong, iremos por fases, implementando en cada paso uno de los elementos del programa.
+Pygame se distribuye bajo la licencia libre LGPL, lo que permite utilizarla tanto en proyecto libres como comerciales.
+
+Además de la Documentación oficial de pygame, en Internet se pueden encontrar sitios y libros dedicados a la introducción a la programación en general, o a la introducción a la programación de videojuegos en particular, mediante pygame, como los siguientes:
+
+-Programar Juegos Arcade con Python y Pygame
+
+-Making Games with Python & Pygame
+
  
 # TAREA 0: 
   Instalación de pygame
@@ -88,16 +100,16 @@ if __name__ == "__main__":
 
 Cada una de las instrucciones tiene una función específica, que se comenta a continuación:
 
--> Importación de módulos
+* Importación de módulos
 ```
   import pygame
   from pygame.locals import *
   ```
   Importamos los módulos pygame. Para que al hacer referencia en el programa a las constantes de pygame no tengamos que incluir el nombre del módulo, las importamos todas del módulo pygame.locals.
 
- -> Definición de constantes
-  ´´´
-  #Constantes para la inicialización de la superficie de dibujo
+ * Definición de constantes
+ ```
+  # Constantes para la inicialización de la superficie de dibujo
   VENTANA_HORI = 800  # Ancho de la ventana
   VENTANA_VERT = 600  # Alto de la ventana
   FPS = 60  # Fotogramas por segundo
@@ -109,7 +121,7 @@ Cada una de las instrucciones tiene una función específica, que se comenta a c
   ·Normalmente FPS hace referencia al número de veces por segundo que se actualiza la imagen en la ventana. En principio, cuanto más alto es ese valor, mejor se verán los objetos en movimiento, aunque cada pantalla admite un valor máximo y dependiendo de la complejidad de la creación de la imagen puede que no se puedan alcanzar valores muy altos. En pygame, la ventana se está actualizando constantemente y en cada actualización los objetos se desplazan, por lo que si la ventana se actualiza demasiadas veces, los objetos se desplazarán demasiado rápido. Para evitarlo, en pygame FPS significa el número máximo de veces que queremos que se actualice la ventana, aunque si debido a la complejidad de la imagen el número de veces que se actualiza la imagen es inferior, pygame no podrá alcanzarlo.
   ·En pygame los colores se indican mediante códigos RGB, así que definimos una constante con el nombre del color para facilitar su referencia.
   
-  ->Inicialización
+ * Inicialización
      ```
      # Inicialización de Pygame
       pygame.init()
@@ -121,10 +133,12 @@ Cada una de las instrucciones tiene una función específica, que se comenta a c
   Con estas instrucciones:
 
   ·Inicializamos pygame.
+  
   ·Creamos el objeto ventana que nos permite acceder al contenido de la ventana (al crearlo, le indicamos su tamaño).
+  
   ·Le damos un título a la ventana.
   
-  ->Bucle principal
+* Bucle principal
   ```
       # Bucle principal
       jugando = True
@@ -143,18 +157,28 @@ Cada una de las instrucciones tiene una función específica, que se comenta a c
   El bucle principal se ejecuta continuamente:
 
   ·línea 22: La variable lógica jugando controlará la repetición del bucle. Inicialmente, la variable tiene el valor True.
+  
   ·línea 23: Mientras se mantenga ese valor, el bucle se repetirá.
+  
   ·línea 24: En cada iteración pintamos la pantalla de blanco para borrar los elementos de la imagen anterior (en este programa todavía no ha elementos, pero podemos añadir ya esta instrucción).
+  
   ·líneas 26 a 28: Las pulsaciones de tecla o del ratón se reciben en forma de eventos.
+  
     -línea 26: El bucle for recorre en cada iteración los eventos recibidos
+    
     -línea 27: Si el evento es de tipo QUIT (es decir, que se ha cerrado la ventana del juego) ...
+    
     -línea 28: La variable jugando pasa a False, por lo que el bucle while no se volverá a ejecutar.
+    
   ·línea 30: Todos los elementos de la pantalla se vuelven a dibujar (en este programa todavía no ha elementos, pero podemos añadir ya esta instrucción).
+  
   ·línea 31: Con esta instrucción pygame comprueba que la ejecución se mantiene en el número de FPS y no va demasiado rápida.
+  
   ·línea 33: Si hemos salido del bucle es que se ha cerrado la ventana, así que con esta instrucción le pedimos a pygame que cierre todos sus procesos.
 
 
 # PASO 2: Clase PelotaPong
+
 El primer elemento del juego que programaremos será la pelota. Para definir la pelota crearemos una clase a la que llamaremos PelotaPong. Las clases son propias de la programación orientada a objetos y permiten ampliar los tipos de datos del lenguaje. Una vez definida la clase, podemos crear tantas variables de esa clase como queramos (por ejemplo, una o varias pelotas, en el caso de que quisiéramos jugar con varias pelotas a la vez).
 
 El siguiente programa dibuja una pelota cuadrada de color rojo en el centro de la ventana y la desplaza en línea recta en una de las cuatro direcciones diagonales. Cuando llega al borde de la ventana, la pelota deja de verse aunque sigue moviéndose indefinidamente en la misma dirección.
