@@ -3,7 +3,7 @@ Reto compartido: El juego del Ping Pong
 
 @ESTHERRODRIGUEZGARCIA, @tereesaalvarez, @Barroso03
 
-En este repositorio se va a resolver el juego de "Ping Pong". La tarea consiste en trabajar de forma conjunta con un repositorio compartido donde al menos se mostrarán 10 commits, 10 miltones y 5 proyects en el repositorio conjunto con varias ramas por persona y realizar la tarea pendiente que se presenta al final del documento.
+En este repositorio se va a resolver el juego de "Ping Pong". La tarea consiste en trabajar de forma cooperativa con un repositorio compartido donde se muestran diferentes commits, issues y  10 miltones en el repositorio conjunto y realizar el ejercicio indicado al final del documento.
 
 # Realización del programa 
   Vamos a programar un juego de Pong en el que una de las raquetas esté controlada por el jugador humano mediante el teclado y la otra raqueta esté contralada por el propio programa.
@@ -143,7 +143,7 @@ Cada una de las instrucciones tiene una función específica, que se comenta a c
 
 # PASO 2: Clase PelotaPong
 
-El primer elemento del juego que programaremos será la pelota. Para definir la pelota crearemos una clase a la que llamaremos PelotaPong. Las clases son propias de la programación orientada a objetos y permiten ampliar los tipos de datos del lenguaje. Una vez definida la clase, podemos crear tantas variables de esa clase como queramos (por ejemplo, una o varias pelotas, en el caso de que quisiéramos jugar con varias pelotas a la vez).
+El primer elemento del juego que programaremos será la pelota. Definimos la pelota creando una clase a la que llamaremos PelotaPong. Las clases son propias de la programación orientada a objetos y permiten ampliar los tipos de datos del lenguaje. Una vez definida la clase, podemos crear tantas variables de esa clase como queramos (por ejemplo, una o varias pelotas, en el caso de que quisiéramos jugar con varias pelotas a la vez).
 
 El siguiente programa dibuja una pelota cuadrada de color rojo en el centro de la ventana y la desplaza en línea recta en una de las cuatro direcciones diagonales. Cuando llega al borde de la ventana, la pelota deja de verse aunque sigue moviéndose indefinidamente en la misma dirección.
 
@@ -462,20 +462,16 @@ Para pygame, las pulsaciones de teclado son eventos. Cuando se pulsa una tecla, 
 En este paso, añadiremos el golpe de la raqueta del jugador humano a la pelota.
 
 Para ello, crearemos el método golpear_raqueta() en la clase RaquetaPong y en el bucle principal llamaremos al método.
+
 Las instrucciones añadidas con respecto al paso 6 son las siguientes:
 
-* Método golpear()
-
+Método golpear()
 Este golpe es quizás el punto más complicado del programa.
- -líneas 78 a 18: En principio, el golpe se produce cuando la raqueta y la pelota están en contacto y el resultado del golpe es que la pelota debe cambiar de dirección de movimiento horizontal.
- 
-![imagen](https://user-images.githubusercontent.com/93209324/144099738-04f75e63-cc99-4320-9272-ef4073eafda8.png)
-
- -líneas 83 y 84: Para evitar que el programa detecte colisión en dos o más iteraciones consecutivas (lo que provocaría cambios continuos de dirección, es decir, el zigzazeo de la pelota), además de cambiar la dirección de movimiento de la pelota, desplazaremos explícitamente la pelota fuera de la raqueta.
- -Un detalle que no tiene en cuenta el programa es cuando la raqueta golpea verticalmente la pelota, es decir, cuando la golpea desde abajo o desde arriba cuando está pasando. Tal y como está redactado el programa, este golpe produce la devolución de la pelota, cuando realmente no debería hacerlo.
 ````
-
-def golpear(self, pelota):
+líneas 78 a 18: En principio, el golpe se produce cuando la raqueta y la pelota están en contacto y el resultado del golpe es que la pelota debe cambiar de dirección de movimiento horizontal.
+líneas 83 y 84: Para evitar que el programa detecte colisión en dos o más iteraciones consecutivas (lo que provocaría cambios continuos de dirección, es decir, el zigzazeo de la pelota), además de cambiar la dirección de movimiento de la pelota, desplazaremos explícitamente la pelota fuera de la raqueta.
+Un detalle que no tiene en cuenta el programa es cuando la raqueta golpea verticalmente la pelota, es decir, cuando la golpea desde abajo o desde arriba cuando está pasando. Tal y como está redactado el programa, este golpe produce la devolución de la pelota, cuando realmente no debería hacerlo.
+    def golpear(self, pelota):
         if (
             pelota.x < self.x + self.ancho
             and pelota.x > self.x
@@ -484,14 +480,11 @@ def golpear(self, pelota):
         ):
             pelota.dir_x = -pelota.dir_x
             pelota.x = self.x + self.ancho
-
-````
-* Detectar el golpe de la pelota
-
+Detectar el golpe de la pelota
 Añadimos en el bucle principal del programa la llamada al método golpear() de la raqueta del jugador humano.
-````
-raqueta_1.golpear(pelota)
-````
+
+        raqueta_1.golpear(pelota)
+
 # PASO 8: Raqueta controlada por el ordenador
 
 En este paso, añadiremos el control de la raqueta del jugador controlado por el propio programa.
@@ -524,7 +517,7 @@ def mover_ia(self, pelota):
 
 ````
 * Método golpear_ia()
-* 
+ 
 Este método es como el método golpear() del jugador humano, pero teniendo en cuenta que la pelota se acerca por el lado izquierdo de la raqueta en vez de por el derecho.
 ````
 def golpear_ia(self, pelota):
@@ -538,7 +531,7 @@ def golpear_ia(self, pelota):
             pelota.x = self.x - pelota.ancho
 ````
 * Mover la raqueta y detectar el golpe de la pelota
-* 
+ 
 Añadimos en el bucle principal del programa las llamadas a los métodos mover_ia() y golpear_ia() de la raqueta del jugador controlado por el propio programa (líneas 129 y 131).
 ````
 raqueta_1.mover()
