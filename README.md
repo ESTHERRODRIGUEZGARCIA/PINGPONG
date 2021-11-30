@@ -576,6 +576,7 @@ def reiniciar(self):
 Modificamos el método rebotar(), de manera que cuando detecte que la pelota ha salido por los lados derecho e izquierdo, llame al método reiniciar().
 
 ´´´
+
 def rebotar(self):
         if self.x <= -self.ancho:
             self.reiniciar()
