@@ -559,7 +559,7 @@ Las instrucciones añadidas con respecto al paso 8 son las siguientes:
 
 Para guardar y actualizar la puntuación de los jugadores, añadimos las siguientes instrucciones:
 
- - Atributos puntuacion
+ -Atributos puntuacion
 Añadimos dos atributos más en la clase PelotaPong, puntuacion y puntuacion_ia para guardar las puntuaciones de cada jugador.
 ````
 # Puntuación de la pelota
@@ -579,6 +579,7 @@ La puntuación debe modificarse cuando un jugador gana, es decir, cuando la pelo
             self.puntuacion += 1
 ````
 * Para mostrar en la ventana la puntuación de ambos jugadores, añadimos las siguientes instrucciones:
+* 
  -Color del texto
 Definimos el color NEGRO como constante:
 ````
