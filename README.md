@@ -346,7 +346,7 @@ Las instrucciones añadidas con respecto al paso 4 son las siguientes:
         def mover(self):
             self.y += self.dir_y
             
-```
+````
 
 La clase RaquetaPong es muy similar a la clase PelotaPong.
         ·El método __init__() de la clase RaquetaPong es un poco más simple que el de la clase PelotaPong.
