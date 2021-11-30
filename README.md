@@ -424,11 +424,12 @@ class PelotaPong:
         pygame.time.Clock().tick(FPS)
 
     pygame.quit()
-
-if __name__ == "__main__":
+    
+    if __name__ == "__main__":
     main()
     
-```
+    ```
+    
 Las instrucciones añadidas con respecto al paso 2 son las siguientes:
 
 * Método rebotar():
