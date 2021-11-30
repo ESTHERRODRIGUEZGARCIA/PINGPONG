@@ -304,11 +304,13 @@ En la definición de una clase se definen los atributos y los métodos de la cla
         self.ancho, self.alto = self.imagen.get_size()
         
     -Dos atributos más serán la posición horizontal y vertical de la imagen, x e y. Inicialmente, queremos que la pelota se dibuje en el centro de la pantalla. Para ello, tenemos que tener en cuenta que cuando indicamos la posición de un objeto, estamos indicando la posición de la esquina superior izquierda de su imagen. Si el objeto es muy pequeño, no se notará la diferencia, pero lo mejor es tener en cuenta el ancho y alto del objeto, restando la mitad del tamaño del objeto a la posición del centro de la ventana.
+    
 ```
   VENTANA_HORI / 2self.ancho / 2VENTANA_VERT / 2self.alto / 2
     -   self.x = VENTANA_HORI / 2 - self.ancho / 2
          self.y = VENTANA_VERT / 2 - self.alto / 2
 ```
+
     -Dos atributos más serán la dirección horizontal y vertical de movimiento de la imagen, dir_x y dir_y. Numéricamente, serán los píxeles que se desplazará la pelota cada vez que se redibuje la pantalla.Inicialmente, la pelota se desplazará 5px aleatoriamente hacia arriba (-5) o hacia abajo (5), hacia la izquierda (-5) o hacia la derecha (5):
 
         self.dir_x = random.choice([-5, 5])
@@ -320,16 +322,17 @@ La imagen siguiente muestra tres posiciones sucesivas de la pelota. La pelota se
 dir_ydir_x(2)dir_ydir_x
 
   ·(3)
+  ```
     def mover(self):
         self.x += self.dir_x
         self.y += self.dir_y
-
-->Creación de la pelota
+```
+* Creación de la pelota
 Una vez definida una clase, en el cuerpo del programa podemos crear objetos (es decir, variables) de esa clase. En este caso, creamos la variable pelota de la clase PelotaPong. Esta variable automáticamente tendrá los atributos definidos en la clase (imagen, tamaño, posición, dirección) y se le podrán aplicar los métodos definidos en la clase (mover()). Al crear la variable le debemos indicar el fichero de imagen a utilizar, en este caso una imagen png.
   ```
     pelota = PelotaPong("bola_roja.png")
     ```
-->Mover la pelota
+* Mover la pelota
 Para que la pelota se mueva y se dibuje en la pantalla, en el bucle principal del programa debemos:
 
   ·Llamar al método mover(), para que se modifique la posición de la pelota (es decir sus atributos x e y):
