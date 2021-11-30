@@ -424,7 +424,8 @@ def main():
 
 if __name__ == "__main__":
     main()
-   ```
+    
+```
 Las instrucciones añadidas con respecto al paso 2 son las siguientes:
 
 * Método rebotar():
@@ -438,7 +439,9 @@ Para conseguir que la pelota rebote contra las paredes, basta con detectar cuand
   
 
 ![image](https://user-images.githubusercontent.com/91721860/144070361-b038c262-8b6c-40a4-9d7b-7fabf3ea63b1.png)
-´´´
+
+```
+
  def rebotar(self):
         if self.x <= 0:
             self.dir_x = -self.dir_x
@@ -448,9 +451,13 @@ Para conseguir que la pelota rebote contra las paredes, basta con detectar cuand
             self.dir_y = -self.dir_y
         if self.y + self.alto >= VENTANA_VERT:
             self.dir_y = -self.dir_y
+            
   ```          
+  
 * Comprobación del rebote:
 Para que el programa compruebe si se debe producir un rebote basta con llamar al método en el bucle principal del programa:
+
 ```
     pelota.rebotar()
+    
 ´´´
