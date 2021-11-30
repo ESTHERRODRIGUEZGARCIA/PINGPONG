@@ -20,7 +20,12 @@ La palabra Pong es una marca registrada por Atari Interactive (aunque la patente
 
 Por todo ello, cuando se aprende a programar videojuegos, es habitual comenzar programando un juego como Pong, por su sencillez y también como homenaje al gran clásico.
 
-Vamos a ir realizando diferentes tareas:
+
+  Realización del programa
+  Vamos a programar un juego de Pong en el que una de las raquetas esté controlada por el jugador humano mediante el teclado y la otra raqueta esté contralada por el propio programa.
+
+  Para la realización del juego Pong, iremos por fases, implementando en cada paso uno de los elementos del programa.
+ 
 TAREA 0:
   Instalación de pygame
   0.1 Abra una ventana de terminal y escriba los siguientes comandos.
@@ -28,12 +33,6 @@ TAREA 0:
       python -m pip install --upgrade pip
   0.3 Instale pygame:
       pip install pygame
-
-  Realización del programa
-  Vamos a programar un juego de Pong en el que una de las raquetas esté controlada por el jugador humano mediante el teclado y la otra raqueta esté contralada por el propio programa.
-
-  Para la realización del juego Pong, iremos por fases, implementando en cada paso uno de los elementos del programa.
-  
-Paso 1: Ventana de juego  
+PASO 1: Ventana de juego  
 
 
