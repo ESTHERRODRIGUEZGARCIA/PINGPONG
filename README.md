@@ -258,12 +258,13 @@ if __name__ == "__main__":
 Las instrucciones añadidas con respecto al paso 1 son las siguientes:
     
 * Importación de módulos
-```
+
 import random
-```
+
 Importamos el módulo random, que utilizaremos en el programa.
 
 * Clase PelotaPong
+```
 class PelotaPong:
     def __init__(self, fichero_imagen):
         # --- Atributos de la Clase ---
@@ -289,6 +290,7 @@ class PelotaPong:
 En la definición de una clase se definen los atributos y los métodos de la clase. Los atributos son variables que van asociadas automáticamente a los objetos. Los métodos son funciones que se pueden aplicar a los objetos. En la definición de la clase para hacer referencia a que los atributos son los del propio objeto se indica con self.
 
   ·El método __init__() es la función que se ejecuta automáticamente cuando se cree un objeto de la clase. Por eso, aprovechamos este método para definir los atributos de la clase. En el caso de la pelota de este juego, sus atributos serán: la imagen que se muestra en la pantalla, su tamaño, la posición en la pantalla y la dirección del movimiento:
+
     -Todos los métodos incluyen el argumento self que hace referencia al propio objeto. En este caso, también añadimos el argumento imagen que indicará el camino hasta el fichero de imagen de la pelota:
     
     def __init__(self, imagen):
@@ -302,10 +304,11 @@ En la definición de una clase se definen los atributos y los métodos de la cla
         self.ancho, self.alto = self.imagen.get_size()
         
     -Dos atributos más serán la posición horizontal y vertical de la imagen, x e y. Inicialmente, queremos que la pelota se dibuje en el centro de la pantalla. Para ello, tenemos que tener en cuenta que cuando indicamos la posición de un objeto, estamos indicando la posición de la esquina superior izquierda de su imagen. Si el objeto es muy pequeño, no se notará la diferencia, pero lo mejor es tener en cuenta el ancho y alto del objeto, restando la mitad del tamaño del objeto a la posición del centro de la ventana.
-    
+```
   VENTANA_HORI / 2self.ancho / 2VENTANA_VERT / 2self.alto / 2
     -   self.x = VENTANA_HORI / 2 - self.ancho / 2
          self.y = VENTANA_VERT / 2 - self.alto / 2
+```
     -Dos atributos más serán la dirección horizontal y vertical de movimiento de la imagen, dir_x y dir_y. Numéricamente, serán los píxeles que se desplazará la pelota cada vez que se redibuje la pantalla.Inicialmente, la pelota se desplazará 5px aleatoriamente hacia arriba (-5) o hacia abajo (5), hacia la izquierda (-5) o hacia la derecha (5):
 
         self.dir_x = random.choice([-5, 5])
