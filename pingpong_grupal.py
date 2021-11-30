@@ -48,7 +48,7 @@ class PelotaPong:
 
 def main():
     # Inicialización de Pygame
-    pygame.init()
+    
 
     # Inicialización de la superficie de dibujo (display surface)
     ventana = pygame.display.set_mode((VENTANA_HORI, VENTANA_VERT))
