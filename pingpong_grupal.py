@@ -2,6 +2,7 @@
 
 # ventana de juego
 
+import random
 import pygame 
 from pygame.locals import QUIT
 
