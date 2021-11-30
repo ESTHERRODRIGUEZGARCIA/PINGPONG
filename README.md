@@ -348,13 +348,13 @@ Para que la pelota se mueva y se dibuje en la pantalla, en el bucle principal de
 
 En este paso mejoraremos el comportamiento de la pelota haciendo que la pelota rebote al chocar con los cuatro lados de la ventana. Para ello, añadiremos un nuevo método a la clase (rebotar()) que utilizaremos en el bucle principal del programa.
 ´´´
-# pong_1_3.py: Rebote de la pelota
+#pong_1_3.py: Rebote de la pelota
 
 import random
 import pygame
 from pygame.locals import QUIT
 
-# Constantes para la inicialización de la superficie de dibujo
+#Constantes para la inicialización de la superficie de dibujo
 VENTANA_HORI = 800  # Ancho de la ventana
 VENTANA_VERT = 600  # Alto de la ventana
 FPS = 60  # Fotogramas por segundo
@@ -428,12 +428,15 @@ if __name__ == "__main__":
    ```
 Las instrucciones añadidas con respecto al paso 2 son las siguientes:
 
-->Método rebotar():
+* Método rebotar():
 Para conseguir que la pelota rebote contra las paredes, basta con detectar cuando la pelota llega al borde de la ventana y en ese momento cambiar la dirección del movimiento.
 
   ·Al comprobar si se ha llegado al borde, es mejor hacer las comparaciones utilizando desigualdades (> o <) en vez de igualdades (==), ya que la pelota se desplaza varios píxeles a cada paso y podría saltarse el valor límite. Al escribir desigualdades, nos aseguramos de que detectamos si se supera el valor límite.
+  
   ·Como se ha comentado al colocar la pelota en el centro de la pantalla, la posición de un objeto corresponde a la posición de la esquina superior izquierda de la imagen. Por ello no es lo mismo detectar que se ha llegado al lado izquierdo de la ventana que al derecho. En el lado izquierdo podemos comparar la posición con el valor límite (0), pero en el lado derecho tenemos que tener en cuenta el ancho de la pelota. Ocurre lo mismo en vertical, puesto que abajo hay que tener en cuenta el alto de la pelota.
+  
   ·Cuando se choca con los lados derecho e izquierdo, sólo hay que cambiar la dirección horizontal de movimiento, mientras que cuando se choca con los lados de arriba y de abajo, sólo hay que cambiar la dirección vertical.
+  
 
 ![image](https://user-images.githubusercontent.com/91721860/144070361-b038c262-8b6c-40a4-9d7b-7fabf3ea63b1.png)
 ´´´
@@ -447,7 +450,7 @@ Para conseguir que la pelota rebote contra las paredes, basta con detectar cuand
         if self.y + self.alto >= VENTANA_VERT:
             self.dir_y = -self.dir_y
   ```          
--> Comprobación del rebote:
+* Comprobación del rebote:
 Para que el programa compruebe si se debe producir un rebote basta con llamar al método en el bucle principal del programa:
 ```
     pelota.rebotar()
