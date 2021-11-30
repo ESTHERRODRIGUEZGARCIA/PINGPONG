@@ -153,7 +153,7 @@ Cada una de las instrucciones tiene una función específica, que se comenta a c
           pygame.time.Clock().tick(FPS)
 
       pygame.quit()
-      ´´´
+  ```    
   El bucle principal se ejecuta continuamente:
 
   ·línea 22: La variable lógica jugando controlará la repetición del bucle. Inicialmente, la variable tiene el valor True.
@@ -182,6 +182,7 @@ Cada una de las instrucciones tiene una función específica, que se comenta a c
 El primer elemento del juego que programaremos será la pelota. Para definir la pelota crearemos una clase a la que llamaremos PelotaPong. Las clases son propias de la programación orientada a objetos y permiten ampliar los tipos de datos del lenguaje. Una vez definida la clase, podemos crear tantas variables de esa clase como queramos (por ejemplo, una o varias pelotas, en el caso de que quisiéramos jugar con varias pelotas a la vez).
 
 El siguiente programa dibuja una pelota cuadrada de color rojo en el centro de la ventana y la desplaza en línea recta en una de las cuatro direcciones diagonales. Cuando llega al borde de la ventana, la pelota deja de verse aunque sigue moviéndose indefinidamente en la misma dirección.
+
 ![image](https://user-images.githubusercontent.com/91721860/144065171-611d65b9-3a4c-474e-ac7c-d97dcd2215b0.png)
 
 Para situar los objetos en la ventana pygame utiliza un sistema de coordenadas cartesianas en el que el origen se encuentran en la esquina superior izquierda de la ventana y en el que el eje vertical está dirigido hacia abajo. De esta manera, los valores de las coordenadas serán siempre positivos: cuanto mayor sea la coordenada x más a la derecha estará el objeto y cuanto mayor sea la coordenada y más hacia abajo estará el objeto. Si se asignan valores negativos o mayores que el tamaño de la ventana, no se produce ningún error, pero el objeto simplemente no se verá (dependiendo del tamaño que tenga y de los valores utilizados, el objeto puede verse parcialmente).
@@ -253,16 +254,16 @@ def main():
 
 if __name__ == "__main__":
     main()
-    ```
+```
 Las instrucciones añadidas con respecto al paso 1 son las siguientes:
     
-->Importación de módulos
+* Importación de módulos
 ```
 import random
 ```
 Importamos el módulo random, que utilizaremos en el programa.
 
-->Clase PelotaPong
+* Clase PelotaPong
 class PelotaPong:
     def __init__(self, fichero_imagen):
         # --- Atributos de la Clase ---
