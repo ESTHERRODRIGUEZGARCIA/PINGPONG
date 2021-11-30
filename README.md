@@ -464,21 +464,23 @@ Para que el programa compruebe si se debe producir un rebote basta con llamar al
 ```
     pelota.rebotar()
     
-´´´
-# Paso 4: Reiniciar pelota al salir por los lados izquierdo y derecho
+ ```
+
+# PASO 4: Reiniciar pelota al salir por los lados izquierdo y derecho
 
 Realmente, en el juego de Pong la pelota no debe rebotar en todos los lados, como hacía en el programa anterior. Únicamente debe rebotar arriba y abajo. Si la pelota llega a alguno de los lados, significará que uno de los jugadores no ha devuelto la pelota. En ese caso, el jugador habrá perdido un punto y la pelota debe volver a lanzarse desde el centro (en dirección al jugador que ha ganado el punto, por ejemplo).
 
 En este paso, modificaremos el método rebotar() y añadiremos un método reiniciar() para conseguir el comportamiento comentado en el párrafo anterior.
 
 ```
-# pong_1_4.py: Reiniciar pelota al salir por los lados
+
+#pong_1_4.py: Reiniciar pelota al salir por los lados
 
 import random
 import pygame
 from pygame.locals import QUIT
 
-# Constantes para la inicialización de la superficie de dibujo
+#Constantes para la inicialización de la superficie de dibujo
 VENTANA_HORI = 800  # Ancho de la ventana
 VENTANA_VERT = 600  # Alto de la ventana
 FPS = 60  # Fotogramas por segundo
