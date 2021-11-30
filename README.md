@@ -456,6 +456,71 @@ Para pygame, las pulsaciones de teclado son eventos. Cuando se pulsa una tecla, 
                     if event.key == pygame.K_s:
                         raqueta_1.dir_y = 0
 ````
+
 # PASO 7: Golpear la pelota con la raqueta
+
+En este paso, añadiremos el golpe de la raqueta del jugador humano a la pelota.
+
+Para ello, crearemos el método golpear_raqueta() en la clase RaquetaPong y en el bucle principal llamaremos al método.
+Las instrucciones añadidas con respecto al paso 6 son las siguientes:
+
+* Método golpear()
+
+Este golpe es quizás el punto más complicado del programa.
+ -líneas 78 a 18: En principio, el golpe se produce cuando la raqueta y la pelota están en contacto y el resultado del golpe es que la pelota debe cambiar de dirección de movimiento horizontal.
+ 
+![imagen](https://user-images.githubusercontent.com/93209324/144099738-04f75e63-cc99-4320-9272-ef4073eafda8.png)
+
+ -líneas 83 y 84: Para evitar que el programa detecte colisión en dos o más iteraciones consecutivas (lo que provocaría cambios continuos de dirección, es decir, el zigzazeo de la pelota), además de cambiar la dirección de movimiento de la pelota, desplazaremos explícitamente la pelota fuera de la raqueta.
+ -Un detalle que no tiene en cuenta el programa es cuando la raqueta golpea verticalmente la pelota, es decir, cuando la golpea desde abajo o desde arriba cuando está pasando. Tal y como está redactado el programa, este golpe produce la devolución de la pelota, cuando realmente no debería hacerlo.
+````
+
+def golpear(self, pelota):
+        if (
+            pelota.x < self.x + self.ancho
+            and pelota.x > self.x
+            and pelota.y + pelota.alto > self.y
+            and pelota.y < self.y + self.alto
+        ):
+            pelota.dir_x = -pelota.dir_x
+            pelota.x = self.x + self.ancho
+
+````
+* Detectar el golpe de la pelota
+
+Añadimos en el bucle principal del programa la llamada al método golpear() de la raqueta del jugador humano.
+````
+raqueta_1.golpear(pelota)
+````
 # PASO 8: Raqueta controlada por el ordenador
+
+En este paso, añadiremos el control de la raqueta del jugador controlado por el propio programa.
+
+Para ello, crearemos los método mover_raqueta_ia() y golpear_raqueta_ia() en la clase RaquetaPong y en el bucle principal llamaremos a estos métodos.
+
+Las instrucciones añadidas con respecto al paso 7 son las siguientes:
+
+* Método mover_ia()
+
+ El ordenador seguirá la siguiente estrategia para mover la raqueta.
+ 
+  -líneas 77 a 78: Si la raqueta se encuentra por debajo de la pelota, la raqueta se desplazará hacia arriba (dando un valor negativo a dir_y).
+  
+  -líneas 79 a 80: Si la raqueta se encuentra por encima de la pelota, la raqueta se desplazará hacia abajo (dando un valor positivo a dir_y).
+  
+  -líneas 81 a 82: Si la raqueta está a la altura de la pelota, la raqueta se detendrá (dando un valor nulo a dir_y).
+  
+  -línea 76: como el método necesita conocer la posición de la pelota, incluimos la pelota como argumento del método.
+````
+def mover_ia(self, pelota):
+        if self.y > pelota.y:
+            self.dir_y = -3
+        elif self.y < pelota.y:
+            self.dir_y = 3
+        else:
+            self.dir_y = 0
+
+        self.y += self.dir_y
+
+````
 # PASO 9: Mostrar puntuación
