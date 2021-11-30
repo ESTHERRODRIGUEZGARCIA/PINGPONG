@@ -52,7 +52,7 @@ El siguiente programa genera una ventana en blanco con el título del juego, sim
 ```
 import pygame
 from pygame.locals import QUIT
-
+```
 
 # Constantes para la inicialización de la superficie de dibujo
 ```
