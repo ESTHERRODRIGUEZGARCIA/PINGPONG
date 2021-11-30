@@ -230,14 +230,15 @@ Una vez definida una clase, en el cuerpo del programa podemos crear objetos (es 
     pelota = PelotaPong("bola_roja.png")
     ```
 * Mover la pelota
+
 Para que la pelota se mueva y se dibuje en la pantalla, en el bucle principal del programa debemos:
 
   ·Llamar al método mover(), para que se modifique la posición de la pelota (es decir sus atributos x e y):
-        ```
-        pelota.mover()
-        ```
+  ````
+  pelota.mover()
+  ````
   ·Dibujar la pelota en su posición en la ventana. Para ello recurrimos al método bit() del objeto ventana, indicando la imagen que queremos dibujar y su posición en la ventana:
-  ```
+ ```
         ventana.blit(pelota.imagen, (pelota.x, pelota.y))
 ´´´
 
