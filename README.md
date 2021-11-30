@@ -27,12 +27,20 @@ Por todo ello, cuando se aprende a programar videojuegos, es habitual comenzar p
   Para la realización del juego Pong, iremos por fases, implementando en cada paso uno de los elementos del programa.
  
 TAREA 0:
+
   Instalación de pygame
+  
   0.1 Abra una ventana de terminal y escriba los siguientes comandos.
+  
   0.2 Actualice pip:
+  
       python -m pip install --upgrade pip
+      
   0.3 Instale pygame:
+  
       pip install pygame
+      
 PASO 1: Ventana de juego  
+
 
 
