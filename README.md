@@ -49,14 +49,19 @@ El siguiente programa genera una ventana en blanco con el título del juego, sim
 ![image](https://user-images.githubusercontent.com/91721860/144035929-2c8b016e-2b0c-4c2c-a693-6a31dd0dacd6.png)
 
 # pong_1_1.py: Ventana de juego
-
+```
 import pygame
 from pygame.locals import QUIT
 
+
 # Constantes para la inicialización de la superficie de dibujo
+```
 VENTANA_HORI = 800  # Ancho de la ventana
+
 VENTANA_VERT = 600  # Alto de la ventana
+
 FPS = 60  # Fotogramas por segundo
+
 BLANCO = (255, 255, 255)  # Color del fondo de la ventana (RGB)
 
 
@@ -66,10 +71,12 @@ def main():
 
     # Inicialización de la superficie de dibujo (display surface)
     ventana = pygame.display.set_mode((VENTANA_HORI, VENTANA_VERT))
+    
     pygame.display.set_caption("Pong 1")
 
     # Bucle principal
     jugando = True
+    
     while jugando:
         ventana.fill(BLANCO)
 
@@ -85,7 +92,7 @@ def main():
 
 if __name__ == "__main__":
     main()
-
+```
 
 
 
