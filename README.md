@@ -238,9 +238,10 @@ Para que la pelota se mueva y se dibuje en la pantalla, en el bucle principal de
   pelota.mover()
   ````
   ·Dibujar la pelota en su posición en la ventana. Para ello recurrimos al método bit() del objeto ventana, indicando la imagen que queremos dibujar y su posición en la ventana:
- ```
+````
         ventana.blit(pelota.imagen, (pelota.x, pelota.y))
-´´´
+````
+
 
 # PASO 3: Rebote de la pelota
 
