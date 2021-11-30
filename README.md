@@ -164,11 +164,11 @@ Cada una de las instrucciones tiene una función específica, que se comenta a c
   
   ·líneas 26 a 28: Las pulsaciones de tecla o del ratón se reciben en forma de eventos.
   
-    -línea 26: El bucle for recorre en cada iteración los eventos recibidos
+        -línea 26: El bucle for recorre en cada iteración los eventos recibidos
     
-    -línea 27: Si el evento es de tipo QUIT (es decir, que se ha cerrado la ventana del juego) ...
+        -línea 27: Si el evento es de tipo QUIT (es decir, que se ha cerrado la ventana del juego) ...
     
-    -línea 28: La variable jugando pasa a False, por lo que el bucle while no se volverá a ejecutar.
+        -línea 28: La variable jugando pasa a False, por lo que el bucle while no se volverá a ejecutar.
     
   ·línea 30: Todos los elementos de la pantalla se vuelven a dibujar (en este programa todavía no ha elementos, pero podemos añadir ya esta instrucción).
   
@@ -461,3 +461,129 @@ Para que el programa compruebe si se debe producir un rebote basta con llamar al
     pelota.rebotar()
     
 ´´´
+# Paso 4: Reiniciar pelota al salir por los lados izquierdo y derecho
+
+Realmente, en el juego de Pong la pelota no debe rebotar en todos los lados, como hacía en el programa anterior. Únicamente debe rebotar arriba y abajo. Si la pelota llega a alguno de los lados, significará que uno de los jugadores no ha devuelto la pelota. En ese caso, el jugador habrá perdido un punto y la pelota debe volver a lanzarse desde el centro (en dirección al jugador que ha ganado el punto, por ejemplo).
+
+En este paso, modificaremos el método rebotar() y añadiremos un método reiniciar() para conseguir el comportamiento comentado en el párrafo anterior.
+
+```
+# pong_1_4.py: Reiniciar pelota al salir por los lados
+
+import random
+import pygame
+from pygame.locals import QUIT
+
+# Constantes para la inicialización de la superficie de dibujo
+VENTANA_HORI = 800  # Ancho de la ventana
+VENTANA_VERT = 600  # Alto de la ventana
+FPS = 60  # Fotogramas por segundo
+BLANCO = (255, 255, 255)  # Color del fondo de la ventana (RGB)
+
+
+class PelotaPong:
+    def __init__(self, fichero_imagen):
+        # --- Atributos de la Clase ---
+
+        # Imagen de la Pelota
+        self.imagen = pygame.image.load(fichero_imagen).convert_alpha()
+
+        # Dimensiones de la Pelota
+        self.ancho, self.alto = self.imagen.get_size()
+
+        # Posición de la Pelota
+        self.x = VENTANA_HORI / 2 - self.ancho / 2
+        self.y = VENTANA_VERT / 2 - self.alto / 2
+
+        # Dirección de movimiento de la Pelota
+        self.dir_x = random.choice([-5, 5])
+        self.dir_y = random.choice([-5, 5])
+
+    def mover(self):
+        self.x += self.dir_x
+        self.y += self.dir_y
+
+    def rebotar(self):
+        if self.x <= -self.ancho:
+            self.reiniciar()
+        if self.x >= VENTANA_HORI:
+            self.reiniciar()
+        if self.y <= 0:
+            self.dir_y = -self.dir_y
+        if self.y + self.alto >= VENTANA_VERT:
+            self.dir_y = -self.dir_y
+
+    def reiniciar(self):
+        self.x = VENTANA_HORI / 2 - self.ancho / 2
+        self.y = VENTANA_VERT / 2 - self.alto / 2
+        self.dir_x = -self.dir_x
+        self.dir_y = random.choice([-5, 5])
+
+
+def main():
+    # Inicialización de Pygame
+    pygame.init()
+
+    # Inicialización de la superficie de dibujo (display surface)
+    ventana = pygame.display.set_mode((VENTANA_HORI, VENTANA_VERT))
+    pygame.display.set_caption("Pong 4")
+
+    pelota = PelotaPong("bola_roja.png")
+
+    # Bucle principal
+    jugando = True
+    while jugando:
+        pelota.mover()
+        pelota.rebotar()
+
+        ventana.fill(BLANCO)
+        ventana.blit(pelota.imagen, (pelota.x, pelota.y))
+
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                jugando = False
+
+        pygame.display.flip()
+        pygame.time.Clock().tick(FPS)
+
+    pygame.quit()
+
+
+if __name__ == "__main__":
+    main()
+
+
+```
+
+Las instrucciones añadidas con respecto al paso 3 son las siguientes:
+
+* Método reiniciar():
+
+Cuando la pelota se salga por los lados izquierdo y derecho, debe volver al centro, moviéndose en dirección contraria a la que tenía antes. para ello creamos un método reiniciar() que modifica los atributos de posición y dirección de movimiento.
+
+```
+
+def reiniciar(self):
+        self.x = VENTANA_HORI / 2 - self.ancho / 2
+        self.y = VENTANA_VERT / 2 - self.alto / 2
+        self.dir_x = -self.dir_x
+        self.dir_y = random.choice([-5, 5])
+
+```
+
+* Método rebotar():
+
+Modificamos el método rebotar(), de manera que cuando detecte que la pelota ha salido por los lados derecho e izquierdo, llame al método reiniciar().
+
+´´´
+def rebotar(self):
+        if self.x <= -self.ancho:
+            self.reiniciar()
+        if self.x >= VENTANA_HORI:
+            self.reiniciar()
+        if self.y <= 0:
+            self.dir_y = -self.dir_y
+        if self.y + self.alto >= VENTANA_VERT:
+            self.dir_y = -self.dir_y
+
+```
