@@ -604,3 +604,4 @@ texto = f"{pelota.puntuacion} : {pelota.puntuacion_ia}"
         letrero = fuente.render(texto, False, NEGRO)
         ventana.blit(letrero, (VENTANA_HORI / 2 - fuente.size(texto)[0] / 2, 50))
 ````
+# FIN DEL JUEGO
