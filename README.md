@@ -3,7 +3,7 @@ Reto compartido: El juego del Ping Pong
 
 @ESTHERRODRIGUEZGARCIA, @tereesaalvarez, @Barroso03
 
-En este repositorio se va a resolver el juego de "Ping Pong". La tarea consiste en trabajar de forma conjunta con un repositorio compartido donde al menos se mostrarán 10 commits, 10 miltones y 5 proyects en el repositorio conjunto con varias ramas por persona y realizar la tarea pendiente que se presenta al final del documento.
+En este repositorio se va a resolver el juego de "Ping Pong". La tarea consiste en trabajar de forma cooperativa con un repositorio compartido donde se muestran diferentes commits, issues y  10 miltones en el repositorio conjunto y realizar el ejercicio indicado al final del documento.
 
 # Realización del programa 
   Vamos a programar un juego de Pong en el que una de las raquetas esté controlada por el jugador humano mediante el teclado y la otra raqueta esté contralada por el propio programa.
@@ -143,7 +143,7 @@ Cada una de las instrucciones tiene una función específica, que se comenta a c
 
 # PASO 2: Clase PelotaPong
 
-El primer elemento del juego que programaremos será la pelota. Para definir la pelota crearemos una clase a la que llamaremos PelotaPong. Las clases son propias de la programación orientada a objetos y permiten ampliar los tipos de datos del lenguaje. Una vez definida la clase, podemos crear tantas variables de esa clase como queramos (por ejemplo, una o varias pelotas, en el caso de que quisiéramos jugar con varias pelotas a la vez).
+El primer elemento del juego que programaremos será la pelota. Definimos la pelota creando una clase a la que llamaremos PelotaPong. Las clases son propias de la programación orientada a objetos y permiten ampliar los tipos de datos del lenguaje. Una vez definida la clase, podemos crear tantas variables de esa clase como queramos (por ejemplo, una o varias pelotas, en el caso de que quisiéramos jugar con varias pelotas a la vez).
 
 El siguiente programa dibuja una pelota cuadrada de color rojo en el centro de la ventana y la desplaza en línea recta en una de las cuatro direcciones diagonales. Cuando llega al borde de la ventana, la pelota deja de verse aunque sigue moviéndose indefinidamente en la misma dirección.
 
