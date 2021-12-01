@@ -465,13 +465,16 @@ Para ello, crearemos el método golpear_raqueta() en la clase RaquetaPong y en e
 
 Las instrucciones añadidas con respecto al paso 6 son las siguientes:
 
-Método golpear()
+*Método golpear()
 Este golpe es quizás el punto más complicado del programa.
-````
-líneas 78 a 18: En principio, el golpe se produce cuando la raqueta y la pelota están en contacto y el resultado del golpe es que la pelota debe cambiar de dirección de movimiento horizontal.
-líneas 83 y 84: Para evitar que el programa detecte colisión en dos o más iteraciones consecutivas (lo que provocaría cambios continuos de dirección, es decir, el zigzazeo de la pelota), además de cambiar la dirección de movimiento de la pelota, desplazaremos explícitamente la pelota fuera de la raqueta.
-Un detalle que no tiene en cuenta el programa es cuando la raqueta golpea verticalmente la pelota, es decir, cuando la golpea desde abajo o desde arriba cuando está pasando. Tal y como está redactado el programa, este golpe produce la devolución de la pelota, cuando realmente no debería hacerlo.
-    def golpear(self, pelota):
+
+-líneas 78 a 18: En principio, el golpe se produce cuando la raqueta y la pelota están en contacto y el resultado del golpe es que la pelota debe cambiar de dirección de movimiento horizontal.
+
+-líneas 83 y 84: Para evitar que el programa detecte colisión en dos o más iteraciones consecutivas (lo que provocaría cambios continuos de dirección, es decir, el zigzazeo de la pelota), además de cambiar la dirección de movimiento de la pelota, desplazaremos explícitamente la pelota fuera de la raqueta.
+
+-Un detalle que no tiene en cuenta el programa es cuando la raqueta golpea verticalmente la pelota, es decir, cuando la golpea desde abajo o desde arriba cuando está pasando. Tal y como está redactado el programa, este golpe produce la devolución de la pelota, cuando realmente no debería hacerlo.
+  ```` 
+   def golpear(self, pelota):
         if (
             pelota.x < self.x + self.ancho
             and pelota.x > self.x
@@ -480,32 +483,29 @@ Un detalle que no tiene en cuenta el programa es cuando la raqueta golpea vertic
         ):
             pelota.dir_x = -pelota.dir_x
             pelota.x = self.x + self.ancho
-Detectar el golpe de la pelota
+ ````
+*Detectar el golpe de la pelota
 Añadimos en el bucle principal del programa la llamada al método golpear() de la raqueta del jugador humano.
-
+````
         raqueta_1.golpear(pelota)
-
+````
 # PASO 8: Raqueta controlada por el ordenador
-
 En este paso, añadiremos el control de la raqueta del jugador controlado por el propio programa.
-
 Para ello, crearemos los método mover_raqueta_ia() y golpear_raqueta_ia() en la clase RaquetaPong y en el bucle principal llamaremos a estos métodos.
-
 Las instrucciones añadidas con respecto al paso 7 son las siguientes:
 
-* Método mover_ia()
+*Método mover_ia()
+El ordenador seguirá la siguiente estrategia para mover la raqueta.
 
- El ordenador seguirá la siguiente estrategia para mover la raqueta.
- 
-  -líneas 77 a 78: Si la raqueta se encuentra por debajo de la pelota, la raqueta se desplazará hacia arriba (dando un valor negativo a dir_y).
-  
-  -líneas 79 a 80: Si la raqueta se encuentra por encima de la pelota, la raqueta se desplazará hacia abajo (dando un valor positivo a dir_y).
-  
-  -líneas 81 a 82: Si la raqueta está a la altura de la pelota, la raqueta se detendrá (dando un valor nulo a dir_y).
-  
-  -línea 76: como el método necesita conocer la posición de la pelota, incluimos la pelota como argumento del método.
-````
-def mover_ia(self, pelota):
+-líneas 77 a 78: Si la raqueta se encuentra por debajo de la pelota, la raqueta se desplazará hacia arriba (dando un valor negativo a dir_y).
+
+-líneas 79 a 80: Si la raqueta se encuentra por encima de la pelota, la raqueta se desplazará hacia abajo (dando un valor positivo a dir_y).
+
+-líneas 81 a 82: Si la raqueta está a la altura de la pelota, la raqueta se detendrá (dando un valor nulo a dir_y).
+
+-línea 76: como el método necesita conocer la posición de la pelota, incluimos la pelota como argumento del método.
+ ````
+ def mover_ia(self, pelota):
         if self.y > pelota.y:
             self.dir_y = -3
         elif self.y < pelota.y:
@@ -514,13 +514,12 @@ def mover_ia(self, pelota):
             self.dir_y = 0
 
         self.y += self.dir_y
+``````
 
-````
-* Método golpear_ia()
- 
+*Método golpear_ia()
 Este método es como el método golpear() del jugador humano, pero teniendo en cuenta que la pelota se acerca por el lado izquierdo de la raqueta en vez de por el derecho.
 ````
-def golpear_ia(self, pelota):
+    def golpear_ia(self, pelota):
         if (
             pelota.x + pelota.ancho > self.x
             and pelota.x < self.x + self.ancho
@@ -530,14 +529,15 @@ def golpear_ia(self, pelota):
             pelota.dir_x = -pelota.dir_x
             pelota.x = self.x - pelota.ancho
 ````
-* Mover la raqueta y detectar el golpe de la pelota
- 
+
+*Mover la raqueta y detectar el golpe de la pelota
 Añadimos en el bucle principal del programa las llamadas a los métodos mover_ia() y golpear_ia() de la raqueta del jugador controlado por el propio programa (líneas 129 y 131).
 ````
-raqueta_1.mover()
+        raqueta_1.mover()
         raqueta_2.mover_ia(pelota)
         raqueta_1.golpear(pelota)
         raqueta_2.golpear_ia(pelota)
+
 ````
 # PASO 9: Mostrar puntuación
 
@@ -587,11 +587,11 @@ Creamos un objeto de clase Font en el que definimos el tamaño del tipo de letra
  -Escritura en la pantalla
 Para escribir la puntuación:
 
-línea 148: Creamos una variable con el texto a mostrar
+-línea 148: Creamos una variable con el texto a mostrar
 
-línea 149: Creamos la superficie de dibujo con el texto e indicamos el color del texto.
+-línea 149: Creamos la superficie de dibujo con el texto e indicamos el color del texto.
 
-línea 150: Dibujamos la superficie, indicando la posición (x, y). Como la posición es siempre la esquina superior izquierda, tenemos que desplazar la posición horizontal hacia la izquierda teniendo en cuenta el tamaño.
+-línea 150: Dibujamos la superficie, indicando la posición (x, y). Como la posición es siempre la esquina superior izquierda, tenemos que desplazar la posición horizontal hacia la izquierda teniendo en cuenta el tamaño.
 ````
 texto = f"{pelota.puntuacion} : {pelota.puntuacion_ia}"
         letrero = fuente.render(texto, False, NEGRO)
