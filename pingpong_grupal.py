@@ -75,6 +75,15 @@ class RaquetaPong:
         if self.y + self.alto >= VENTANA_VERT:
             self.y = VENTANA_VERT - self.alto
 
+    def mover_ia(self, pelota):
+        if self.y > pelota.y:
+            self.dir_y = -3
+        elif self.y < pelota.y:
+            self.dir_y = 3
+        else:
+            self.dir_y = 0
+        self.y += self.dir_y
+
     def golpear(self, pelota):
         if (
             pelota.x < self.x + self.ancho
