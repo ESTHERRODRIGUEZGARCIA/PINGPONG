@@ -11,7 +11,7 @@ VENTANA_HORI = 800  # Ancho de la ventana
 VENTANA_VERT = 600  # Alto de la ventana
 FPS = 60  # Fotogramas por segundo
 BLANCO = (255, 255, 255)  # Color del fondo de la ventana (RGB)
-NEGRO = (0,0,0)
+NEGRO = (0,0,0) 
 
 #definimos clase y caracteristicas
 class PelotaPong:
@@ -32,19 +32,26 @@ class PelotaPong:
         self.dir_x = random.choice([-5, 5])
         self.dir_y = random.choice([-5, 5])
 
+        #Puntuacion de la pelota
+        self.puntuacion = 0
+        self.puntuacion_ia = 0
+
     def mover(self):
         self.x += self.dir_x
         self.y += self.dir_y
 
     def rebotar(self):
-        if self.x <= 0:
-            self.dir_x = -self.dir_x
-        if self.x + self.ancho >= VENTANA_HORI:
-            self.dir_x = -self.dir_x
+        if self.x <= -self.ancho:
+            self.reiniciar()
+            self.puntuacion_ia += 1
+        if self.x >= VENTANA_HORI:
+            self.reiniciar()
+            self.puntuacion += 1
         if self.y <= 0:
             self.dir_y = -self.dir_y
         if self.y + self.alto >= VENTANA_VERT:
             self.dir_y = -self.dir_y
+     
 
     def reiniciar(self):
         self.x = VENTANA_HORI / 2 - self.ancho / 2
