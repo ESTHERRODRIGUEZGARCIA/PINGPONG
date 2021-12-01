@@ -83,8 +83,9 @@ def main():
 
     raqueta_1 = RaquetaPong()
     raqueta_1.x = 60
-    
-     
+
+    raqueta_2 = RaquetaPong()
+    raqueta_2.x = VENTANA_HORI - 60 - raqueta_2.ancho
 
     # Bucle principal
     jugando = True
