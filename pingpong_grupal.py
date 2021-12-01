@@ -120,6 +120,9 @@ def main():
     ventana = pygame.display.set_mode((VENTANA_HORI, VENTANA_VERT))
     pygame.display.set_caption("Pong 1")
 
+    #inicializacion de la fuente
+    fuente = pygame.font.Font(None, 60)
+
     pelota = PelotaPong("bolaroja.png")
 
     raqueta_1 = RaquetaPong()
