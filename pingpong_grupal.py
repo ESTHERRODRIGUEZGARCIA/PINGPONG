@@ -81,6 +81,11 @@ def main():
 
     pelota = PelotaPong("bolaroja.png")
 
+    raqueta_1 = RaquetaPong()
+    raqueta_1.x = 60
+    
+     
+
     # Bucle principal
     jugando = True
     while jugando:
