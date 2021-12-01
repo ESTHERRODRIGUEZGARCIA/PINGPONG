@@ -146,6 +146,10 @@ def main():
         ventana.blit(raqueta_1.imagen, (raqueta_1.x, raqueta_1.y))
         ventana.blit(raqueta_2.imagen, (raqueta_2.x, raqueta_2.y))
 
+        texto = f"{pelota.puntuacion} : {pelota.puntuacion_ia}"
+        letrero = fuente.render(texto, False, NEGRO)
+        ventana.blit(letrero, (VENTANA_HORI / 2 - fuente.size(texto)[0] / 2, 50))
+
         for event in pygame.event.get():
             if event.type == QUIT:
                 jugando = False
