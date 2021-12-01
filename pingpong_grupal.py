@@ -75,8 +75,16 @@ class RaquetaPong:
         if self.y + self.alto >= VENTANA_VERT:
             self.y = VENTANA_VERT - self.alto
 
-    def golpear(self, pelota)
-   
+    def golpear(self, pelota):
+        if (
+            pelota.x < self.x + self.ancho
+            and pelota.x > self.x
+            and pelota.y + pelota.alto > self.y
+            and pelota.y < self.y + self.alto
+        ):
+            pelota.dir_x = -pelota.dir_x
+            pelota.x = self.x + self.ancho
+
 
 def main():
     # Inicialización de Pygame
