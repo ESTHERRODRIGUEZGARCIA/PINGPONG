@@ -56,16 +56,31 @@ class RaquetaPong:
     def __init__(self):
         self.imagen = pygame.image.load("raqueta.png").convert_alpha()
 
+        #atributos
+
+        #dimensiones de la raqueta
+        self.ancho, self.alto = self.imagen.get_size()
+
+        #posicion raqueta 
+        self.x = 0
+        self.y = VENTANA_VERT / 2 - self.alto / 2
+
+        #direccion movimiento de la raqueta
+        self.dir_y =0
+
+    def mover(self):
+        self.y += self.dir_y
+
 def main():
     # Inicialización de Pygame
-    
+
 
     # Inicialización de la superficie de dibujo (display surface)
     ventana = pygame.display.set_mode((VENTANA_HORI, VENTANA_VERT))
     pygame.display.set_caption("Pong 1")
 
     pelota = PelotaPong("bolaroja.png")
-    
+
     # Bucle principal
     jugando = True
     while jugando:
