@@ -12,17 +12,16 @@ VENTANA_VERT = 600  # Alto de la ventana
 FPS = 60  # Fotogramas por segundo
 BLANCO = (255, 255, 255)  # Color del fondo de la ventana (RGB)
 NEGRO = (0,0,0)
-
+#definimos clase y características 
 class PelotaPong:
     def __init__(self, fichero_imagen):
         
-        # Imagen de la Pelota
+        # Imagen
         self.imagen = pygame.image.load(fichero_imagen).convert_alpha()
 
-        # Dimensiones de la Pelota
+        # Dimensiones
         self.ancho, self.alto = self.imagen.get_size()
-
-        # Posición de la Pelota
+        #posición
         self.x = VENTANA_HORI / 2 - self.ancho / 2
         self.y = VENTANA_VERT / 2 - self.alto / 2
 
