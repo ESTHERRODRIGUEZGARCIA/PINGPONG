@@ -3,7 +3,7 @@ Reto compartido: El juego del Ping Pong
 
 La dirección de github para este repositorio es la siguiente: https://github.com/tereesaalvarez/PINGPONG.git
 
-@ESTHERRODRIGUEZGARCIA, @tereesaalvarez, @Barroso03
+Trabajo realizado por: @ESTHERRODRIGUEZGARCIA, @tereesaalvarez, @Barroso03
 
 En este repositorio se va a resolver el juego de "Ping Pong". La tarea consiste en trabajar de forma cooperativa con un repositorio compartido donde se muestran diferentes commits, issues y  10 miltones en el repositorio conjunto y realizar el ejercicio indicado al final del documento.
 
