@@ -52,7 +52,9 @@ class PelotaPong:
         self.dir_x = -self.dir_x
         self.dir_y = random.choice([-5, 5])        
 
-
+class RaquetaPong:
+    def __init__(self):
+        self.imagen = pygame.image.load("raqueta.png").convert_alpha()
 
 def main():
     # Inicialización de Pygame
