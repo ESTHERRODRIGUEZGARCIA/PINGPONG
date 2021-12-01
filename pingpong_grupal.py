@@ -11,7 +11,7 @@ VENTANA_HORI = 800  # Ancho de la ventana
 VENTANA_VERT = 600  # Alto de la ventana
 FPS = 60  # Fotogramas por segundo
 BLANCO = (255, 255, 255)  # Color del fondo de la ventana (RGB)
-NEGRO = (0,0,0) 
+NEGRO = (0,0,0)
 
 #definimos clase y caracteristicas
 class PelotaPong:
@@ -39,6 +39,8 @@ class PelotaPong:
     def mover(self):
         self.x += self.dir_x
         self.y += self.dir_y
+
+    #creamos una funcion para que nuestra pelota rebote, si sale por la izquierda o la derecha se reinicia
 
     def rebotar(self):
         if self.x <= -self.ancho:
@@ -114,7 +116,6 @@ class RaquetaPong:
 
 def main():
     # Inicialización de Pygame
-
 
     # Inicialización de la superficie de dibujo (display surface)
     ventana = pygame.display.set_mode((VENTANA_HORI, VENTANA_VERT))
